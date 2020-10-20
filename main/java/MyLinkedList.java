@@ -81,10 +81,21 @@ public class MyLinkedList<K, V> {
         return null;
     }
 
-    public <E> void delete(E dataValue) {
+    public <K> void delete(K key) {
+        if (head.getKey().equals(key)) {
+            if (head.equals(tail)) {
+                head = null;
+                tail = null;
+            } else
+                head = head.getNext();
+            return;
+        } else if (head.getNext() == null)
+            return;
         MyMapNode tempNode = head;
-        while (!tempNode.getNext().getValue().equals(dataValue)) {
+        while (!tempNode.getNext().getKey().equals(key)) {
             tempNode = tempNode.getNext();
+            if (tempNode.getNext() == null)
+                return;
         }
         tempNode.setNext(tempNode.getNext().getNext());
     }

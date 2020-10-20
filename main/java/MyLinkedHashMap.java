@@ -45,4 +45,11 @@ public class MyLinkedHashMap<K, V> {
     public String toString() {
         return "MyLinkedHashMap List{ " + myBucketArray + " }";
     }
+
+    public void remove(K key) {
+        int index = getBucketIndex(key);
+        MyLinkedList<K, V> myLinkedList = myBucketArray.get(index);
+        if(myLinkedList == null) return;
+        myLinkedList.delete(key);
+    }
 }
