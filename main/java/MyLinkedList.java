@@ -102,4 +102,9 @@ public class MyLinkedList<K, V> {
     public void printList() {
         System.out.println(head.toString());
     }
+
+    @Override
+    public String toString() {
+        return "MyLinkedList { " + head + " } ";
+    }
 }
